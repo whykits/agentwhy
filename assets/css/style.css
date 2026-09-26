@@ -17,8 +17,6 @@
   --accent: #4f46e5;
   --accent-2: #9333ea;
   --grad: linear-gradient(120deg, var(--accent), var(--accent-2));
-  --glow: rgba(79, 70, 229, 0.08);
-  --dot: rgba(26, 28, 32, 0.10);
 
   --btn-inverse-bg: #1a1c20;
   --btn-inverse-fg: #fbfaf8;
@@ -45,8 +43,6 @@
 
   --accent: #818cf8;
   --accent-2: #c084fc;
-  --glow: rgba(129, 140, 248, 0.09);
-  --dot: rgba(236, 237, 239, 0.09);
 
   --btn-inverse-bg: #eceded;
   --btn-inverse-fg: #0f1013;
@@ -221,35 +217,32 @@ p { margin: 0; }
   overflow: hidden;
 }
 
-/* 点阵背景 */
+/* 噪点颗粒（胶片质感，配合极光） */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
-  background-size: 28px 28px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 90% 75% at 50% 42%,
-    #000 25%,
-    transparent 72%
-  );
-  mask-image: radial-gradient(
-    ellipse 90% 75% at 50% 42%,
-    #000 25%,
-    transparent 72%
-  );
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/></svg>");
   pointer-events: none;
 }
 
-/* 角落光晕 */
+/* 极光渐变（品牌色光斑） */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(640px 420px at 82% 12%, var(--glow), transparent 65%),
-    radial-gradient(520px 380px at 8% 92%, var(--glow), transparent 68%);
+    radial-gradient(760px 520px at 84% 14%, rgba(79, 70, 229, 0.14), transparent 68%),
+    radial-gradient(680px 500px at 8% 90%, rgba(147, 51, 234, 0.11), transparent 68%),
+    radial-gradient(480px 360px at 58% 55%, rgba(56, 189, 248, 0.05), transparent 70%);
   pointer-events: none;
+}
+
+[data-theme="dark"] .hero::after {
+  background:
+    radial-gradient(760px 520px at 84% 14%, rgba(129, 140, 248, 0.17), transparent 68%),
+    radial-gradient(680px 500px at 8% 90%, rgba(192, 132, 252, 0.12), transparent 68%),
+    radial-gradient(480px 360px at 58% 55%, rgba(56, 189, 248, 0.06), transparent 70%);
 }
 
 .hero-inner {
