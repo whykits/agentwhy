@@ -67,7 +67,15 @@ python3 -m http.server 8000
    git push -u origin main
    ```
 
-3. **开启 Pages**：仓库 `Settings → Pages`，Source 选 `main` 分支 / `root`，保存。
+   **仓库已有代码？** 用 gh-pages 分支，不动主分支：
+
+   ```bash
+   git remote add origin git@github.com:<你的用户名>/<仓库名>.git
+   git push -u origin main:gh-pages
+   ```
+
+3. **开启 Pages**：仓库 `Settings → Pages`，Source 选 `Deploy from a branch`，
+   Branch 按上面二选一：`main` / `(root)`（空仓库方案）或 `gh-pages` / `(root)`（已有代码方案），保存。
    仓库里已有 `CNAME` 文件（内容为 `agentwhy.cn`），Pages 会自动读取。
 
 4. **配置域名解析**（在你的域名服务商，如阿里云 / 腾讯云 DNS）：

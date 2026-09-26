@@ -512,18 +512,6 @@ p { margin: 0; }
   letter-spacing: 0.02em;
 }
 
-/* 占位卡片（虚线） */
-.card--ghost {
-  background: transparent;
-  border-style: dashed;
-  box-shadow: none;
-  justify-content: center;
-  text-align: center;
-  min-height: 190px;
-}
-.card--ghost h3 { color: var(--text-2); font-weight: 600; }
-.card--ghost:hover { border-color: var(--accent); }
-
 /* ---------- 联系 ---------- */
 .email-box {
   display: inline-flex;
