@@ -23,6 +23,12 @@
   --btn-inverse-bg: #1a1c20;
   --btn-inverse-fg: #fbfaf8;
 
+  /* 导航终端图标（跟随明暗主题） */
+  --icon-bg: #f7f7f4;
+  --icon-bar: #e2e2dd;
+  --icon-line: #c8c8c2;
+  --icon-prompt: #26282d;
+
   --shadow-rest: 0 1px 2px rgba(23, 22, 20, 0.05);
   --shadow-lift: 0 18px 44px -14px rgba(23, 22, 20, 0.18);
 }
@@ -44,6 +50,12 @@
 
   --btn-inverse-bg: #eceded;
   --btn-inverse-fg: #0f1013;
+
+  /* 导航终端图标（跟随明暗主题） */
+  --icon-bg: #26282d;
+  --icon-bar: #3c3f46;
+  --icon-line: #4a4d55;
+  --icon-prompt: #e8eaf0;
 
   --shadow-rest: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-lift: 0 18px 44px -14px rgba(0, 0, 0, 0.55);
