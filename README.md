@@ -1,6 +1,9 @@
-# Agent WHY · [agentwhy.cn](https://agentwhy.cn)
+# AgentWHY · [agentwhy.cn](https://agentwhy.cn)
 
-简约大方的个人主页。**纯 HTML / CSS / JS，零构建、零依赖**，可直接托管在 GitHub Pages。
+**AgentWHY** 是 [whykits](https://github.com/whykits) 的子项目 —— 探索高效应用 AI 的实验项目。
+本站是它的项目主页：分享用法拆解、工作流实录与踩坑体会。
+
+**纯 HTML / CSS / JS，零构建、零依赖**，可直接托管在 GitHub Pages。
 
 - 自动适配深色 / 浅色模式（右上角可手动切换，记忆偏好）
 - 响应式布局，桌面 / 平板 / 手机均可用
@@ -61,7 +64,8 @@ python3 -m http.server 8000
 
 ## 修改成自己的内容
 
-- **文案 / 链接**：都在 `index.html`，搜索 `yourname` 替换成你的 GitHub 用户名（共 5 处，都有 TODO 注释标记）。
+- **文案 / 链接**：都在 `index.html`。GitHub 链接默认指向 `github.com/whykits` 与 `github.com/whykits/AgentWHY`，如有不同直接搜索 `whykits` 替换（共 7 处，都有注释标记）。
+- **分享卡片**：`#share` 区块的三张卡片默认链到子项目仓库，换成具体文章 / 文档地址即可。
 - **邮箱**：搜索 `hello@agentwhy.cn`（2 处）。
 - **主题色**：`assets/css/style.css` 顶部的 `--accent` / `--accent-2` 两个变量。
 - **图标 / 分享图**：替换 `assets/img/favicon.svg` 和 `og.png`（1200 × 630）。
