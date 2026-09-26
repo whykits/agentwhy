@@ -12,7 +12,7 @@ window.SITE = {
   github: "https://github.com/whykits/AgentWHY",
 
   // 联系邮箱
-  email: "hello@agentwhy.cn",
+  email: "agentwhy@whykits.com",
 
   /* 分享卡片：按顺序显示，想加就复制一段
      title 卡片标题 / desc 一句话介绍 / tags 标签 / link 点开去的地址 */
