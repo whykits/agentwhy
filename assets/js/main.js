@@ -37,6 +37,54 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  /* ---------- 内容渲染（内容统一在 content.js 配置） ---------- */
+  var SITE = window.SITE || {};
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return {
+        "&": "&amp;", "<": "&lt;", ">": "&gt;",
+        '"': "&quot;", "'": "&#39;",
+      }[c];
+    });
+  }
+
+  if (SITE.github) {
+    document.querySelectorAll('[data-site="github"]').forEach(function (a) {
+      a.setAttribute("href", SITE.github);
+    });
+  }
+
+  if (SITE.email) {
+    var addr = document.querySelector('[data-site="email-text"]');
+    if (addr) addr.textContent = SITE.email;
+    var copyTarget = document.getElementById("copyEmail");
+    if (copyTarget) copyTarget.setAttribute("data-email", SITE.email);
+  }
+
+  var cardsBox = document.getElementById("cards");
+  if (cardsBox && Array.isArray(SITE.share) && SITE.share.length) {
+    var ARROW =
+      '<svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" ' +
+      'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ' +
+      'aria-hidden="true" focusable="false"><path d="M7 17L17 7M8 7h9v9"/></svg>';
+    cardsBox.innerHTML = SITE.share
+      .map(function (item, i) {
+        var tags = (item.tags || [])
+          .map(function (t) { return "<li>" + escapeHtml(t) + "</li>"; })
+          .join("");
+        var href = item.link || SITE.github || "#";
+        return (
+          '<a class="card reveal d' + ((i % 3) + 1) + '" href="' + escapeHtml(href) +
+          '" target="_blank" rel="noopener">' +
+          '<div class="card-top"><h3>' + escapeHtml(item.title) + "</h3>" + ARROW + "</div>" +
+          "<p>" + escapeHtml(item.desc) + "</p>" +
+          '<ul class="tags mono">' + tags + "</ul></a>"
+        );
+      })
+      .join("");
+  }
+
   /* ---------- 滚动入场 ---------- */
   var reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {

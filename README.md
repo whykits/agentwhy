@@ -1,28 +1,49 @@
 # AgentWHY · [agentwhy.cn](https://agentwhy.cn)
 
-**AgentWHY** 是 [whykits](https://github.com/whykits) 的子项目 —— 探索高效应用 AI 的实验项目。
-本站是它的项目主页：分享用法拆解、工作流实录与踩坑体会。
+**AgentWHY** — 探索高效应用 AI 的实验项目。本站是它的项目主页：
+分享用法拆解、工作流实录与踩坑体会。
 
 **纯 HTML / CSS / JS，零构建、零依赖**，可直接托管在 GitHub Pages。
+
+## 目录结构（为「挂在 GitHub 上直接改」设计）
+
+```
+├── index.html            # 页面骨架与固定文案（要改的地方都标了 ✏️ 注释）
+├── content.js            # ★ 日常最常改：GitHub 链接、邮箱、分享卡片列表
+├── 404.html              # 404 页面
+├── CNAME                 # 自定义域名 agentwhy.cn（勿删）
+├── .nojekyll             # 跳过 Jekyll 构建
+├── robots.txt / sitemap.xml
+├── README.md
+└── assets/               # 样式 / 脚本 / 图片（一般不用动）
+```
+
+## 日常怎么改（GitHub 网页端直接编辑，保存后自动发布）
+
+| 想改什么 | 改哪里 |
+|---------|--------|
+| **加一条分享** | `content.js`：在 `share` 列表复制一段 `{ … }`，填 `title / desc / tags / link` |
+| 换 GitHub 仓库地址 | `content.js` 顶部 `github` 一行（页面上所有 GitHub 按钮自动跟着变） |
+| 换邮箱 | `content.js` 顶部 `email` 一行 |
+| 改标语、项目简介 | `index.html` 搜索 `✏️` |
+| 换主题色 | `assets/css/style.css` 顶部 `--accent` / `--accent-2` |
+| 换图标 / 分享图 | `assets/img/favicon.svg` 和 `og.png`（1200 × 630） |
+
+加卡片示例（往 `share` 数组里追加即可）：
+
+```js
+{
+  title: "一篇新分享的标题",
+  desc: "一句话介绍这篇内容讲了什么。",
+  tags: ["标签1", "标签2"],
+  link: "https://github.com/whykits/AgentWHY",  // 换成文章地址
+},
+```
 
 - 自动适配深色 / 浅色模式（右上角可手动切换，记忆偏好）
 - 响应式布局，桌面 / 平板 / 手机均可用
 - 滚动入场动画、一键复制邮箱、自定义 404 页
 - SEO / 分享卡片（Open Graph）、sitemap、robots 已配好
-
-## 目录结构
-
-```
-├── index.html            # 主页面（文案都在这里改）
-├── 404.html              # 404 页面
-├── CNAME                 # 自定义域名：agentwhy.cn（GitHub Pages 用）
-├── .nojekyll             # 跳过 Jekyll 构建
-├── robots.txt / sitemap.xml
-└── assets/
-    ├── css/style.css     # 样式（主题色变量在文件顶部）
-    ├── js/main.js        # 交互脚本
-    └── img/              # favicon、og 分享图等
-```
 
 ## 本地预览
 
@@ -61,14 +82,6 @@ python3 -m http.server 8000
 
 5. **开启 HTTPS**：DNS 生效后（几分钟到几小时），回到 `Settings → Pages`，
    勾选 **Enforce HTTPS**。GitHub 会自动为 agentwhy.cn 签发免费证书。
-
-## 修改成自己的内容
-
-- **文案 / 链接**：都在 `index.html`。GitHub 链接默认指向 `github.com/whykits` 与 `github.com/whykits/AgentWHY`，如有不同直接搜索 `whykits` 替换（共 7 处，都有注释标记）。
-- **分享卡片**：`#share` 区块的三张卡片默认链到子项目仓库，换成具体文章 / 文档地址即可。
-- **邮箱**：搜索 `hello@agentwhy.cn`（2 处）。
-- **主题色**：`assets/css/style.css` 顶部的 `--accent` / `--accent-2` 两个变量。
-- **图标 / 分享图**：替换 `assets/img/favicon.svg` 和 `og.png`（1200 × 630）。
 
 ## License
 
